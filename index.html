@@ -15,7 +15,10 @@
         
         body {
             font-family: 'Playfair Display', serif;
-            background: linear-gradient(135deg, #e6f3ff 0%, #cce7ff 100%);
+            background-image: url('fotos/tatuaje.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -24,13 +27,19 @@
         }
         
         .container {
-            background: #ffffff;
+            background-image: url('fotos/tatuaje.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: rgba(255, 255, 255, 0.82);
+            background-blend-mode: overlay;
+            backdrop-filter: blur(10px);
             border-radius: 20px;
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
             max-width: 650px;
             width: 100%;
             overflow: hidden;
-            border: 2px solid #c0c0c0;
+            border: 1px solid rgba(255, 255, 255, 0.65);
         }
         
         .header {
@@ -175,40 +184,36 @@
 
         .preloader-box {
             max-width: 520px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .preloader-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
         }
 
         .preloader-box h2 {
             font-size: 2rem;
             margin-bottom: 16px;
             letter-spacing: 0.03em;
+            color: #2c2c2c;
         }
 
         .preloader-box p {
-            color: #d6e2ff;
+            color: #666;
             line-height: 1.7;
             margin-bottom: 24px;
         }
 
-        .preloader-box button {
-            background: #f9c74f;
-            border: none;
-            color: #0c0e16;
-            padding: 14px 24px;
-            border-radius: 999px;
-            font-size: 1rem;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
-            transition: transform 0.2s ease, background 0.2s ease;
-        }
-
-        .preloader-box button:hover {
-            transform: translateY(-2px);
-            background: #ffde59;
-        }
-
         .container {
             visibility: hidden;
-            opacity: 0;
+            opacity: 0.55;
             pointer-events: none;
             transition: opacity 0.4s ease;
         }
@@ -224,6 +229,17 @@
         }
         
         @media (max-width: 600px) {
+            .container {
+                background-size: contain;
+                background-position: top center;
+                width: 92%;
+                max-width: 92%;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
             .header h1 {
                 font-size: 2.5em;
             }
@@ -240,10 +256,10 @@
 </head>
 <body>
     <div class="preloader-overlay" id="preloader">
-        <div class="preloader-box">
+        <div class="preloader-box" id="startMusic">
             <h2>Dale clic para iniciar la invitación</h2>
-            <p>Después de presionar, podrás ver toda la invitación</strong></p>
-            <button id="startMusic">Ver invitación</button>
+            <p>Después de presionar, podrás ver toda la invitación</p>
+            <div class="seal">🕯️</div>
             <audio id="musica1" src="musica/musica1.mp3"></audio>
         </div>
     </div>
